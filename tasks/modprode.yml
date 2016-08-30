@@ -1,0 +1,7 @@
+---
+
+- name: create modprobe.d-directory if it does not exist
+  file: path='/etc/modprobe.d' owner=root group=root mode=0755 state=directory
+
+- name: create blacklists of modules to disallow booting
+  template: src='blacklist_modules.j2' dest='/etc/modprobe.d/blacklist_modules.conf' owner=root group=root mode=0440

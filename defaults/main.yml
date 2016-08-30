@@ -46,7 +46,7 @@ os_security_packages_list: ['xinetd','inetd','ypserv','telnet-server','rsh-serve
 # Allow interactive startup (rhel, centos)
 os_security_init_prompt: true
 # Require root password for single user mode. (rhel, centos)
-os_security_init_single: false
+os_security_init_single: true
 
 # Apply ufw defaults
 ufw_manage_defaults: true
@@ -123,3 +123,7 @@ sysctl_rhel_config:
   kernel.exec-shield: 1
   # Syncookies is used to prevent SYN-flooding attacks.
   net.ipv4.tcp_syncookies: 1
+
+blacklist_modules: ["cramfs", "freevxfs", "jffs2", "hfs", "hfsplus", "squashfs", "udf", "vfat", "dccp", "sctp", "rds", "tipc", "usb-storage"]
+
+

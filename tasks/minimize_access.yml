@@ -19,7 +19,20 @@
   with_items: "{{ minimize_access_directories.results }}"
 
 - name: change shadow ownership to root and mode to 0600 | DTAG SEC Req 3.21-7
-  file: dest='/etc/shadow' owner={{ os_shadow_perms.owner }} group={{ os_shadow_perms.group }} mode={{ os_shadow_perms.mode }}
+  file: 
+    dest: '/etc/shadow'
+    owner: 'root'
+    group: 'root'
+    mode: 0600
+  when: ansible_os_family | lower == 'redhat'
+
+- name: change shadow ownership to root, shadow and mode to 0640 | DTAG SEC Req 3.21-7
+  file: 
+    dest: '/etc/shadow'
+    owner: 'root'
+    group: 'shadow'
+    mode: 0640
+  when: ansible_os_family | lower == 'debian'
 
 - name: change su-binary to only be accessible to user and group root
   file: dest='/bin/su' owner=root group=root mode=0750
