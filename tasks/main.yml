@@ -42,3 +42,5 @@
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   tags: apt
 
+- include: modprode.yml
+  tags: modules
