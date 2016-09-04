@@ -2,14 +2,5 @@
 - name: create login.defs
   template: src='login.defs.j2' dest='/etc/login.defs' owner=root group=root mode=0444
 
-- name: ensure lightdm conf dir present
-  file: path='/etc/lightdm' owner=root group=root mode=0755 state=directory
-
-- name: ensure lightdm conf dir present
-  file: path='/etc/lightdm/lightdm.conf.d' owner=root group=root mode=0755 state=directory
-
-- name: create 10-hide-users
-  template: src='10-hide-users.j2' dest='/etc/lightdm/lightdm.conf.d/10-hide-users.j2' owner=root group=root mode=0444
-
-- name: 50-no-guest
-  template: src='50-no-guest.j2' dest='/etc/lightdm/lightdm.conf.d/50-no-guest.j2' owner=root group=root mode=0444
+- name: create hide-users
+  template: src='51-hide-users.j2' dest='/usr/share/lightdm/lightdm.conf.d/51-hide-users.j2' owner=root group=root mode=0444
