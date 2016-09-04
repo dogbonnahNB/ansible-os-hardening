@@ -127,6 +127,6 @@ sysctl_rhel_config:
 blacklist_modules: ["cramfs", "freevxfs", "jffs2", "hfs", "hfsplus", "squashfs", "udf", "vfat", "dccp", "sctp", "rds", "tipc", "usb-storage", "uas"]
 
 # Lightdm restrictions
-greeter-show-manual-login: true
-greeter-hide-users: true
-allow-guest: false
+greeter_show_manual_login: true
+greeter_hide_users: true
+allow_guest: false
