@@ -124,7 +124,7 @@ sysctl_rhel_config:
   # Syncookies is used to prevent SYN-flooding attacks.
   net.ipv4.tcp_syncookies: 1
 
-blacklist_modules: ["cramfs", "freevxfs", "jffs2", "hfs", "hfsplus", "squashfs", "udf", "vfat", "dccp", "sctp", "rds", "tipc", "usb-storage", "uas"]
+blacklist_modules: ["cramfs", "freevxfs", "jffs2", "hfs", "hfsplus", "squashfs", "udf", "vfat", "dccp", "sctp", "rds", "tipc", "usb-storage", "uas", "bluetooth"]
 
 # Lightdm restrictions
 greeter_show_manual_login: "true"
