@@ -123,13 +123,12 @@ sysctl_config:
   # Disable ICMP Redirect Acceptance
   net.ipv4.conf.all.accept_redirects: 0
   net.ipv4.conf.lo.accept_redirects: 0
-  net.ipv4.conf.eth0.accept_redirects: 0
   net.ipv4.conf.default.accept_redirects: 0
 
   # Enable Log Spoofed Packets, Source Routed Packets, Redirect Packets
   net.ipv4.conf.all.log_martians: 1
   net.ipv4.conf.lo.log_martians: 1
-  net.ipv4.conf.eth0.log_martians: 1
+  net.ipv4.conf.default.log_martians: 1
 
 # CAUTION
 # If you want to overwrite sysctl-variables,
