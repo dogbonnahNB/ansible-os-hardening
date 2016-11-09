@@ -25,8 +25,7 @@
   with_items:
     - '/etc/yum.conf'
     - '{{ yum_repos.stdout_lines| default([]) }}'
-  ignore_errors: yes
-
+  failed_when: false
 
 - name: remove packages
   yum: name='{{item}}' state=removed
