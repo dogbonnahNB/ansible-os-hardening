@@ -20,6 +20,14 @@
   replace: dest='/etc/yum/pluginconf.d/rhnplugin.conf' regexp='^\s*gpgcheck=0' replace='gpgcheck=1'
   when: rhnplugin_file.stat.exists
 
+- name: activate gpg-check for yum-repos
+  replace: dest='{{item}}' regexp='^\s*gpgcheck=0' replace='gpgcheck=1'
+  with_items:
+    - '/etc/yum.conf'
+    - '{{ yum_repos.stdout_lines| default([]) }}'
+  ignore_errors: yes
+
+
 - name: remove packages
   yum: name='{{item}}' state=removed
   with_items:
