@@ -16,13 +16,6 @@
   stat: path='/etc/yum/pluginconf.d/rhnplugin.conf'
   register: rhnplugin_file
 
-- name: activate gpg-check for yum-repos
-  replace: dest='{{item}}' regexp='^\s*gpgcheck=0' replace='gpgcheck=1'
-  with_items:
-    - '/etc/yum.conf'
-    - '{{ yum_repos.stdout_lines| default([]) }}'
-  ignore_errors: yes
-
 - name: activate gpg-check for yum rhn if it exists
   replace: dest='/etc/yum/pluginconf.d/rhnplugin.conf' regexp='^\s*gpgcheck=0' replace='gpgcheck=1'
   when: rhnplugin_file.stat.exists
